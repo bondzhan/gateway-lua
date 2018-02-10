@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行云订单API</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <h2>行云订单API v3.1</h2>
+        </div>
+        <div class="content">
+            {(./nav.html)}
+            <div class="content-left col-md-6 col-md-offset-4">
+                <div class="content-container">
+                    <p class="content-left-header"><strong>增加销售订单</strong></p>
+                    <div class="content-left-container addOrder">
+                        <h4>简要描述:</h4>
+                        <ul>
+                            <li><span class="strong">接口地址：</span>***.**.**.**/api/service/business</li>
+                            <li><span class="strong">支持格式：</span>JSON</li>
+                            <li><span class="strong">请求方式：</span>HTTP POST</li>
+                        </ul>
+                        <div>
+                            <table class="table table-bordered">
+                                <caption>请求参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>必填</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">opcode</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>操作码，固定值: add_order </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">merchant_order_no</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>订单标识Id(一般是对接方的订单号)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">pay_type</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>付款方式:1余额支付,2信用支付</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">merchant_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>商户id</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">accept_name</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>收货人姓名</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">card_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>身份证号码</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">post_code</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>邮政编码(6位长度)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">telphone</td>
+                                        <td>String</td>
+                                        <td>否</td>
+                                        <td>联系电话</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">mobile</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>手机</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">province</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>所属区域：省</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">city</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>所属区域：市</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">area</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>所属区域：区</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">address</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>收货地址</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">card_url_front</td>
+                                        <td>String</td>
+                                        <td>否</td>
+                                        <td>身份证正面URL部分直邮必填</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">card_url_back</td>
+                                        <td>String</td>
+                                        <td>否</td>
+                                        <td>身份证背面URL部分直邮必填</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">message</td>
+                                        <td>String</td>
+                                        <td>否</td>
+                                        <td>订单留言</td>
+                                    </tr>
+                                    <tr colspan="2">
+                                        <td rowspan="2">items</td>
+                                        <td>sku_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>商品编码(SKU_ID)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>quantity</td>
+                                        <td>int</td>
+                                        <td>是</td>
+                                        <td>订购数量</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>MD5加密串</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign_type</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>加密方式:MD5(大写)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered">
+                                <caption>返回参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">ret_code</td>
+                                        <td>String</td>
+                                        <td>业务结果返回</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">ret_msg</td>
+                                        <td>String</td>
+                                        <td>业务结果描述返回</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign</td>
+                                        <td>String</td>
+                                        <td>MD5加密串</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign_type</td>
+                                        <td>String</td>
+                                        <td>加密方式:MD5(大写)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">status</td>
+                                        <td>String</td>
+                                        <td>支付订单状态1待支付 2支付成功 3已取消</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">order_no</td>
+                                        <td>String</td>
+                                        <td>支付订单流水(业务成功则有返回)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">merchant_order_no</td>
+                                        <td>String</td>
+                                        <td>外部订单标识(您传入的订单号)</td>
+                                    </tr>
+                                    <tr colspan="6">
+                                        <td rowspan="6">items</td>
+                                        <td>goods_order</td>
+                                        <td>String</td>
+                                        <td>商品订单(拆分的订单)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>sku_id</td>
+                                        <td>String</td>
+                                        <td>sku编码</td>
+                                    </tr>
+                                    <tr>
+                                        <td>freight_amount</td>
+                                        <td>String</td>
+                                        <td>运费</td>
+                                    </tr>
+                                    <tr>
+                                        <td>buy_num</td>
+                                        <td>String</td>
+                                        <td>购买数量</td>
+                                    </tr>
+                                    <tr>
+                                        <td>price</td>
+                                        <td>String</td>
+                                        <td>单价</td>
+                                    </tr>
+                                    <tr>
+                                        <td>order_status</td>
+                                        <td>String</td>
+                                        <td>订单状态: 1.待付款 2.待确认 3.通关中 4.待推送 5.待发货 6.待收货 7.已完成 8.后台管理员取消该笔商品订单(异常订单) 9.发货失败 10过期或用户取消订单</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">total_all_amount</td>
+                                        <td>String</td>
+                                        <td>订单总额(业务成功则有返回)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">real_pay_amount</td>
+                                        <td>String</td>
+                                        <td>实际支付金额</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">total_freight</td>
+                                        <td>String</td>
+                                        <td>运费(业务成功则有返回)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>JSON返回示例</p>
+                            <pre><code>
+{
+    "ret_code":"000000",
+    "ret_msg":"成功",
+    "sign":"agdadgasdgasgdsgdasgdas",
+    "sign_type":"MD5",
+    "merchant_order_no":"201608101446567889",
+    "order_no":"201608101446251437",
+    "items":[
+                {
+                    "goods_order": "O201701181543596325 ",
+                    "sku_id":"MBS00050-B ",
+                    "freight_amount":"运费(分)",
+                    "buy_num":"购买数量",
+                    "price ":"单价",
+                    "sku_id":" sku编码",
+                    "order_status":"订单状态"
+                },
+                { }..
+            ],
+    "total_all_amount":"总订单金额(分)",
+    "real_pay_amount":实际支付金额(分),
+    "total_freight":"总运费(分)"
+}
+                           </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

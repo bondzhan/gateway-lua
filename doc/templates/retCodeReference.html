@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行云订单API</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <h2>行云订单API v3.1</h2>
+        </div>
+        <div class="content">
+             {(./nav.html)}
+            <div class="content-left col-md-6 col-md-offset-4">
+                <div class="content-container">
+                    <p class="content-left-header"><strong>返回码参照(retCode)</strong></p>
+                    <div class="content-left-container addOrder">
+                        <div>
+                            <table class="table table-bordered">
+                                
+                                <thead>
+                                    <tr>
+                                        <th width="180">编码</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>100000</td>
+                                       
+                                        <td>操作码为空 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >100001</td>
+                                        <td>查询数据为空</td>
+                                    </tr>
+                                    <tr>
+                                        <td >100002 </td>
+
+                                        <td>查询成功</td>
+                                    </tr>
+                                    <tr>
+                                        <td>100003</td>
+                                        <td>请求参数为空如: merchant_id….</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>100004</td>
+                                        <td>请求数据为空</td>
+                                    </tr>
+                                    <tr>
+                                        <td>100005</td>
+                                       
+                                        <td>ip尚未报备 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >100006</td>
+                                        <td>验签未通过</td>
+                                    </tr>
+                                    <tr>
+                                        <td >000000</td>
+
+                                        <td>交易成功</td>
+                                    </tr>
+                                    <tr>
+                                        <td>999999</td>
+                                        <td>交易失败或异常信息</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200100</td>
+                                        <td>库存不足</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200101</td>
+                                       
+                                        <td>已下架 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >200102</td>
+                                        <td>已删除</td>
+                                    </tr>
+                                    <tr>
+                                        <td >200103 </td>
+
+                                        <td>已存于草稿箱</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200104</td>
+                                        <td>同一身份证号、手机号保税商品一周两单，请选择修改信息或继续购买，继续购买可能不能今天报关！</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200105</td>
+                                        <td>已超额禁止下单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200106</td>
+                                       
+                                        <td>单品超额 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >200107</td>
+                                        <td>年度限额超额</td>
+                                    </tr>
+                                    <tr>
+                                        <td >200108 </td>
+
+                                        <td>订单已过期</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200109 </td>
+                                        <td>余额不足</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200110</td>
+                                        <td>已完成的订单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200111</td>
+                                        <td>已取消的订单</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200112</td>
+                                       
+                                        <td>订单状态异常 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >200113 </td>
+                                        <td>订单数据为空</td>
+                                    </tr>
+                                    <tr>
+                                        <td >200114 </td>
+
+                                        <td>信用额度不够</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200115</td>
+                                        <td>不能用信用支付</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200116 </td>
+                                        <td>信用账户未激活或者已冻结</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200117</td>
+                                       
+                                        <td>商户订单号重复 </td>
+                                    </tr>
+                                    <tr>
+                                        <td >200118</td>
+                                        <td>购买数大于最大起拍数</td>
+                                    </tr>
+                                    <tr>
+                                        <td >200119 </td>
+
+                                        <td>购买数小于最小起拍数</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200120</td>
+                                        <td>购买数量不在购买区间范围</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200121</td>
+                                        <td>需要身份证正反面图</td>
+                                    </tr>
+                                    <tr>
+                                        <td >200122 </td>
+
+                                        <td>生成订单失败</td>
+                                    </tr>
+                                    <tr>
+                                        <td>200123</td>
+                                        <td>生成订单成功</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>200220</td>
+                                        <td>请求参数不是json格式！</td>
+                                    </tr>                                                                                                                                                                                                                                  
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

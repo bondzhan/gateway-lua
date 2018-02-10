@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行云订单API</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <h2>行云订单API v3.1</h2>
+        </div>
+        <div class="content">
+            {(./nav.html)}
+            <div class="content-left col-md-6 col-md-offset-4">
+                <div class="content-container">
+                    <p class="content-left-header"><strong>MD5加密</strong></p>
+                    <div class="content-left-container">
+                        <h4>简要描述:</h4>
+                        <ul>
+                            <li>1.将参数（<span class="strong">sign sign_type</span>字段外）按键值字典序排列。如.将foo=1&bar=2&baz=3 排序为bar=2&baz=3&foo=1，参数值链接后，得到拼装字符串bar=2&baz=3&foo=1;</li>
+                            <li>2.将获取的对应密钥<span class='strong'>key</span>附在上一步字符串尾后，得到拼装字符串bar=2&baz=3&foo=1&<span class="strong">key</span>=xxxx;</li>
+                            <li>3.对此字符串进行MD5签名md5(bar=2&baz=3&foo=1&<span class='strong'>key</span>=xxxx);</li>
+                            <li>
+                                <p>JAVA示例</p>
+                                <pre><code>java:
+    public static String createLinkString(JSONObject params) {
+        List<String> keys = new ArrayList<String>(params.keySet());
+        Collections.sort(keys);
+        String prestr = "";
+        for (int i = 0; i < keys.size(); i++) {
+            String key = keys.get(i);
+            String value = String.valueOf(params.get(key));
+            if (i == keys.size() - 1) {//拼接时，不包括最后一个&字符
+                prestr = prestr + key + "=" + value;
+            } else {
+                prestr = prestr + key + "=" + value + "&";
+            }
+        }
+        return prestr.replaceAll("\"", "");
+    }
+
+public static String createLinkString(Map<String, Object> params) {
+        List<String> keys = new ArrayList<String>(params.keySet());
+        Collections.sort(keys);//排序
+        String prestr = "";
+        for (int i = 0; i < keys.size(); i++) {
+            String key = keys.get(i);
+            String value = String.valueOf(params.get(key));
+            if (i == keys.size() - 1) {//拼接时，不包括最后一个&字符
+                prestr = prestr + key + "=" + value;
+            } else {
+                prestr = prestr + key + "=" + value + "&";
+            }
+        }
+        return prestr.replaceAll("\"", "");
+}
+    /**
+     * 发送请求
+    * @Title: postData 
+    * @Description: TODO(这里用一句话描述这个方法的作用) 
+    * @param @param urlStr 服务端URL
+    * @param @param data 请求数组(可自行调整)
+    * @param @param contentType HTTP内容类型 application/json;charset=UTF-8
+    * @param @return  参数说明 
+    * @return String    返回类型 
+    * @author sup
+    * @throws
+*/
+public static String postData(String urlStr, JSONObject data, String contentType){  
+        BufferedReader reader = null;  
+        try {  
+            URL url = new URL(urlStr);  
+            URLConnection conn =  url.openConnection();  
+            conn.setDoOutput(true);  
+            conn.setConnectTimeout(CONNECT_TIMEOUT);  
+            conn.setReadTimeout(CONNECT_TIMEOUT); 
+            if(contentType != null)  
+                conn.setRequestProperty("content-type", contentType);  
+            OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream(), DEFAULT_ENCODING); 
+            writer.write(data.toString());
+            writer.flush();  
+            writer.close();    
+  
+            reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), DEFAULT_ENCODING));  
+            StringBuilder sb = new StringBuilder();  
+            String line = null;  
+            while ((line = reader.readLine()) != null) {  
+                sb.append(line);  
+                sb.append("\r\n");  
+            }  
+            if(!StringUtils.isEmpty(sb)){
+            	logger.info("服务端返回："+sb.toString());
+            	return sb.toString();  
+            }
+        } catch (IOException e) {  
+            logger.error("Error connecting to " + urlStr + ": " + e.getMessage());  
+        } finally {  
+            try {  
+                if (reader != null)  
+                    reader.close();  
+            } catch (IOException e) {  
+            	logger.error("IOException:"+e.getMessage());
+            }  
+        }  
+        return null;  
+}
+                                </code></pre>
+                                <p>PHP示例</p>
+                                <pre><code>PHP:
+/**
+ * 把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
+ */
+function createLinkstring($para) {
+	$arg  = "";
+	while (list ($key, $val) = each ($para)) {
+		$arg.=$key."=".$val."&";
+	}
+	//去掉最后一个&字符
+	$arg = substr($arg,0,count($arg)-2);
+	
+	//如果存在转义字符，那么去掉转义
+	if(get_magic_quotes_gpc()){$arg = stripslashes($arg);}
+	
+	return $arg.replace(""","");
+}
+
+/**
+ * 发送请求
+ */
+function curlRequest($url, $data) {
+	$headers = ["Content-type: application/json;charset='utf-8'"];
+    $ch=curl_init();
+	curl_setopt($ch, CURLOPT_URL,$url );
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_HEADER,0);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 5);	
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);    
+    $respon = curl_exec($ch);
+	return $respon;
+}</code></pre>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

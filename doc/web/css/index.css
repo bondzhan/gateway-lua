@@ -1,0 +1,83 @@
+.content{
+	overflow: hidden;
+	min-height:100%;
+}
+.header{
+	border-bottom: 1px solid #eee;
+	position: fixed;
+	width: 100%;
+	top:0;
+	left: 0;
+	background: #fff;
+	z-index: 10;
+}
+.header h2{
+	font-size: 30px;
+	line-height: 40px;
+	margin-left:40px;
+	padding:20px 0px;
+	background: #fff;
+}
+.nav{
+    top: 111px;
+    left: 0px;
+    position: fixed;
+    padding-top: 10px;
+    min-height: 100%;
+    border-right-color: rgb(221, 221, 221);
+    border-right-width: 1px;
+    border-right-style: solid;
+    overflow-y: auto;
+    display: block;
+    background: rgb(245, 245, 245);
+}
+.nav ul{
+	padding-left: 40px;
+}
+.nav ul li{
+	list-style: none;
+    margin-bottom: 20px;
+}
+.nav ul li a{
+	color: #333;
+	text-decoration: none;
+}
+.content-left{
+	margin-top: 111px;
+}
+.content-left-header{
+	    border-bottom: 1px solid #d9d9d9;
+	    padding-bottom: 20px;
+}
+.content-left-header  strong{
+	font-size: 30px;
+	font-weight: bold;
+}
+.content-container{
+	margin-top:20px;
+}
+.content-left-container{
+	margin-top: 20px;
+} 
+
+.content-left-container ul li{
+	font-size: 16px;
+	line-height: 30px;
+	margin-bottom:15px;
+}
+.strong{
+	color: #f30;
+	font-weight: bold;
+}
+
+.addOrder.content-left-container ul{
+   font-size: 16px;
+   line-height: 20px;
+   margin-left:10px;
+}
+
+.addOrder.content-left-container ul li{
+   font-size: 14px;
+   line-height: 20px;
+   margin-bottom:8px;
+}

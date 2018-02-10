@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行云订单API</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <h2>行云订单API v3.1</h2>
+        </div>
+        <div class="content">
+           {(./nav.html)}
+            <div class="content-left col-md-6 col-md-offset-4">
+                <div class="content-container">
+                    <p class="content-left-header"><strong>获取产品详情</strong></p>
+                    <div class="content-left-container addOrder">
+                        <h4>简要描述:</h4>
+                        <ul>
+                            <li><span class="strong">接口地址：</span>***.**.**.**/api/service/business</li>
+                            <li><span class="strong">支持格式：</span>JSON</li>
+                            <li><span class="strong">请求方式：</span>HTTP POST</li>
+                        </ul>
+                        <div>
+                            <table class="table table-bordered">
+                                <caption>请求参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>必填</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">opcode</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>操作码，固定值:goods_detail </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">merchant_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>商户id</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>Skuid商品ID</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign_type</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>加密方式:MD5(大写)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>MD5加密串</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered">
+                                <caption>返回参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">ret_code</td>
+                                        <td>String</td>
+                                        <td>业务结果返回</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">ret_msg</td>
+                                        <td>String</td>
+                                        <td>业务结果描述返回</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign</td>
+                                        <td>String</td>
+                                        <td>MD5加密串</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign_type</td>
+                                        <td>String</td>
+                                        <td>加密方式:MD5(大写)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_id</td>
+                                        <td>String</td>
+                                        <td>商品编码</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_name</td>
+                                        <td>String</td>
+                                        <td>商品名称</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_suffix</td>
+                                        <td>String</td>
+                                        <td>商品名称后缀</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">sku_prefix</td>
+                                        <td>String</td>
+                                        <td>商品名称前缀</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_stock_num_show</td>
+                                        <td>String</td>
+                                        <td>商品库存</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_detail</td>
+                                        <td>String</td>
+                                        <td>商品详情</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="2">sku_subTitle</td>
+                                        <td>String</td>
+                                        <td>商品副标题</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">freight_id</td>
+                                        <td>String</td>
+                                        <td>运费模板ID</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_weight</td>
+                                        <td>String</td>
+                                        <td>商品重量</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="2">sku_weight_unit</td>
+                                        <td>String</td>
+                                        <td>商品重量单位</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_pic</td>
+                                        <td>String</td>
+                                        <td>商品图片列表以,号隔开</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sku_international_no</td>
+                                        <td>String</td>
+                                        <td>商品国际编码</td>
+                                    </tr>
+
+
+
+
+
+                                    <tr>
+                                        <td colspan="2">min_no</td>
+                                        <td>String</td>
+                                        <td>最小起发数</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">max_no</td>
+                                        <td>String</td>
+                                        <td>最大起发数</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td colspan="2">quality_start_date</td>
+                                        <td>String</td>
+                                        <td>保质期开始时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">quality_end_date</td>
+                                        <td>String</td>
+                                        <td>保质期结束时间</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">model_type</td>
+                                        <td>String</td>
+                                        <td>模板类型1全国包邮，2部分地区包邮，3不包邮</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">ship_city</td>
+                                        <td>String</td>
+                                        <td>发货地</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">trade_id</td>
+                                        <td>String</td>
+                                        <td>贸易类型: 1保税商品，2直邮商品，3完税商品，4售后商品</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">brand_name</td>
+                                        <td>String</td>
+                                        <td>品牌名</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">brand_logo</td>
+                                        <td>String</td>
+                                        <td>品牌logo图</td>
+                                    </tr>                                    
+
+                                    <tr>
+                                        <td colspan="2">country_name</td>
+                                        <td>String</td>
+                                        <td>原产地</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">country_logo</td>
+                                        <td>String</td>
+                                        <td>国旗logo</td>
+                                    </tr> 
+
+                                    <tr>
+                                        <td colspan="2">country_map</td>
+                                        <td>String</td>
+                                        <td>国家地图</td>
+                                    </tr> 
+
+                                    <tr colspan="6">
+                                        <td rowspan="6">price_range_list</td>
+                                        <td>start_num</td>
+                                        <td>String</td>
+                                        <td>起发头</td>
+                                    </tr>
+                                    <tr>
+                                        <td>end_num</td>
+                                        <td>String</td>
+                                        <td>起发尾</td>
+                                    </tr>
+                                    <tr>
+                                        <td>range_price</td>
+                                        <td>String</td>
+                                        <td>起发价</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>JSON返回示例</p>
+                            <pre><code>
+后续补充
+                           </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

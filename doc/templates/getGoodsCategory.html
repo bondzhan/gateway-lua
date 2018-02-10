@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>行云订单API</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="header">
+            <h2>行云订单API v3.1</h2>
+        </div>
+        <div class="content">
+           {(./nav.html)}
+            <div class="content-left col-md-6 col-md-offset-4">
+                <div class="content-container">
+                    <p class="content-left-header"><strong>获取产品类别</strong></p>
+                    <div class="content-left-container addOrder">
+                        <h4>简要描述:</h4>
+                        <ul>
+                            <li><span class="strong">接口地址：</span>*.*.*.*/api/service/business</li>
+                            <li><span class="strong">支持格式：</span>JSON</li>
+                            <li><span class="strong">请求方式：</span>HTTP POST</li>
+                        </ul>
+                        <div>
+                            <table class="table table-bordered">
+                                <caption>请求参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>必填</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">opcode</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>操作码固定值:get_category_list</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">merchant_id</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>商户id</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign_type</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>加密方式:MD5(大写)</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">sign</td>
+                                        <td>String</td>
+                                        <td>是</td>
+                                        <td>MD5加密串</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered">
+                                <caption>返回参数说明</caption>
+                                <thead>
+                                    <tr>
+                                        <th colspan="2">名称</th>
+                                        <th>类型</th>
+                                        <th>说明</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">ret_code</td>
+                                        <td>String</td>
+                                        <td>业务结果返回</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">ret_msg</td>
+                                        <td>String</td>
+                                        <td>业务结果描述返回</td>
+                                    </tr>
+
+                                    <tr colspan="2">
+                                        <td rowspan="2">category_list</td>
+                                        <td>category_id</td>
+                                        <td>String</td>
+                                        <td>分类id</td>
+                                    </tr>
+                                    <tr>
+                                        <td >category_name</td>
+                                        <td>String</td>
+                                        <td>分类名</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>JSON返回示例</p>
+                            <pre><code>
+后续补充
+                           </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
